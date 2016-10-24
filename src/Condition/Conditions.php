@@ -26,7 +26,6 @@ class Conditions extends ArrayCollection
          * @var  SimpleCondition $v
          */
         foreach ($it as $k => $v) {
-            ;
             if ($v->getKey() === $key) {
                 $removed = parent::remove($k);
                 break;

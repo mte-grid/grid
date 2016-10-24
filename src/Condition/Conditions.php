@@ -14,4 +14,24 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Conditions extends ArrayCollection
 {
+    /**
+     * @param int|string $key
+     */
+    public function remove($key)
+    {
+        $it = $this->getIterator();
+        $removed = null;
+        /**
+         * @var int $k
+         * @var  SimpleCondition $v
+         */
+        foreach ($it as $k => $v) {
+            ;
+            if ($v->getKey() === $key) {
+                $removed = parent::remove($k);
+                break;
+            }
+        }
+        return $removed;
+    }
 }

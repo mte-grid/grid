@@ -24,8 +24,16 @@ jQuery.extend($.fn.fmatter.radio, {
 });
 
 NNX.jqGrid.expandAll = function (grid) {
-    $("#" + grid.attr('id') + " .tree-plus").each(function () {
+    var selector = "#" + grid.attr('id') + " .tree-plus";
+    $(selector).each(function () {
+        grid.bind('jqGridAfterLoadComplete', function () {
+            // Ну нет у них события в самом конце(
+            setTimeout(function () {
+                $(selector).trigger('click');
+            }, 10);
+        });
         $(this).trigger('click');
+
     });
 };
 

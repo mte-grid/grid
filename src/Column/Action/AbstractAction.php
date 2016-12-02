@@ -78,6 +78,9 @@ abstract class AbstractAction implements ActionInterface
         if (array_key_exists('urlHelper', $options)) {
             $this->setUrlHelper($options['urlHelper']);
         }
+        if (array_key_exists('options', $options)) {
+            $this->setOptions($options['options']);
+        }
     }
 
     /**
